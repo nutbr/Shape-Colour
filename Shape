@@ -1,0 +1,161 @@
+//
+
+//  ViewController.h
+
+//  DesafioViewMaluca
+
+//
+
+//  Created by Sábado on 04/10/14.
+
+//  Copyright (c) 2014 RUI TOLEDO. All rights reserved.
+
+//
+
+ 
+
+#import <UIKit/UIKit.h>
+
+ 
+
+@interface ViewController : UIViewController
+
+ 
+
+ 
+
+@property(nonatomic, strong) NSTimer *temporizador;
+
+ 
+
+@property (weak, nonatomic) IBOutletUIView *viewAnimar;
+
+ 
+
+- (IBAction)botaoAnimar:(UIButton *)sender;
+
+ 
+
+@end
+
+ 
+
+//
+
+//  ViewController.m
+
+//  DesafioViewMaluca
+
+//
+
+//  Created by Sábado on 04/10/14.
+
+//  Copyright (c) 2014 RUI TOLEDO. All rights reserved.
+
+//
+
+ 
+
+#import "ViewController.h"
+
+ 
+
+@interfaceViewController ()
+
+ 
+
+@end
+
+ 
+
+@implementation ViewController
+
+ 
+
+- (void)viewDidLoad
+
+{
+
+    [superviewDidLoad];
+
+// Do any additional setup after loading the view, typically from a nib.
+
+}
+
+ 
+
+- (void)didReceiveMemoryWarning
+
+{
+
+    [superdidReceiveMemoryWarning];
+
+    // Dispose of any resources that can be recreated.
+
+}
+
+ 
+
+- (IBAction)botaoAnimar:(UIButton *)sender
+
+{
+
+    
+
+ 
+
+    
+
+ 
+
+        self.temporizador=[NSTimerscheduledTimerWithTimeInterval:1.0target:selfselector:@selector(metodoDisparadoPeloTimer) userInfo:nilrepeats:YES];
+
+    
+
+    
+
+}
+
+ 
+
+-(void)metodoDisparadoPeloTimer
+
+{
+
+    
+
+    int vermelho = arc4random()%255;
+
+    int azul = arc4random()%255;
+
+    int verde = arc4random()%255;
+
+    self.viewAnimar.backgroundColor = [UIColor colorWithRed:vermelho/255.0 green:verde/255.0 blue:azul/255.0 alpha:1];
+
+    
+
+    
+
+    NSLog(@"Timer funcionando");
+
+    [UIViewanimateWithDuration:1.0animations:^
+
+     {
+
+         int posicao = arc4random()%4000;
+
+         self.viewAnimar.frame = CGRectMake(posicao/20, posicao/20, posicao/30, posicao/30);
+
+         
+
+     }];
+
+    
+
+}
+
+ 
+
+ 
+
+@end
